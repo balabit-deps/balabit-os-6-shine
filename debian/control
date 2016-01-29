@@ -1,0 +1,57 @@
+Source: shine
+Section: libs
+Priority: optional
+Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
+Uploaders: Sebastian Ramacher <sramacher@debian.org>
+Homepage: https://github.com/savonet/shine
+Standards-Version: 3.9.6
+Build-Depends:
+ debhelper (>= 9.20160114),
+ dh-autoreconf
+Vcs-Git: https://anonscm.debian.org/git/pkg-multimedia/shine.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-multimedia/shine.git
+
+Package: libshine3
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: Fixed-point MP3 encoding library - runtime files
+ Shine can be used to encode audio data on architectures with no floating
+ point processing unit (FPU) at a much better rate than encoding
+ libraries implemented using floating-point arithmetic.
+ .
+ This package contains the files needed to run a program compiled using
+ Shine.
+
+Package: libshine-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends:
+ libshine3 (= ${binary:Version}),
+ pkg-config,
+ ${misc:Depends}
+Description: Fixed-point MP3 encoding library - development files
+ Shine can be used to encode audio data on architectures with no floating
+ point processing unit (FPU) at a much better rate than encoding
+ libraries implemented using floating-point arithmetic.
+ .
+ This package contains the files needed to compile and statically link
+ against Shine.
+
+Package: shineenc
+Architecture: any
+Section: sound
+Depends:
+  libshine3 (= ${binary:Version}),
+  ${shlibs:Depends},
+  ${misc:Depends}
+Description: Fixed-point MP3 encoding library - frontend binary
+ Shine can be used to encode audio data on architectures with no floating
+ point processing unit (FPU) at a much better rate than encoding
+ libraries implemented using floating-point arithmetic.
+ .
+ This package contains a frontend binary capable of encoding WAVE files
+ using Shine. 
